@@ -2,51 +2,53 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>PosterMakerBot — Free Poster Maker</title>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>PosterMakerBot | Free Poster Designer</title>
 <style>
 *{box-sizing:border-box}
-body{margin:0;font-family:Arial,sans-serif;background:#f3f5fa;color:#182039}
-header{background:#172554;color:white;padding:22px;text-align:center}
-header h1{margin:0;font-size:27px}
-header p{margin:8px 0 0;color:#dbeafe}
+body{margin:0;font-family:Arial,sans-serif;background:#f1f5f9;color:#172033}
+header{background:#111827;color:white;text-align:center;padding:24px 12px}
+header h1{margin:0;font-size:29px}
+header p{color:#cbd5e1;margin:9px 0 0}
 main{max-width:1050px;margin:22px auto;padding:0 14px;display:grid;grid-template-columns:1fr 1fr;gap:20px}
-.panel{background:white;border-radius:16px;padding:20px;box-shadow:0 4px 18px #0000000c}
-h2{font-size:19px;margin-top:0}
+.panel{background:white;border-radius:15px;padding:20px;box-shadow:0 4px 18px #0000000b}
+h2{font-size:19px;margin:0 0 15px}
 label{display:block;font-size:14px;font-weight:bold;margin:13px 0 6px}
 input,select{width:100%;padding:12px;border:1px solid #cbd5e1;border-radius:8px;font-size:15px}
-button{border:0;border-radius:9px;padding:13px 16px;font-size:15px;font-weight:bold;cursor:pointer}
-.primary{background:#2563eb;color:white;width:100%;margin-top:17px}
-.download{background:#15803d;color:white;width:100%;margin-top:10px}
-#poster{width:100%;aspect-ratio:4/5;border-radius:10px;padding:22px;display:flex;align-items:center;justify-content:center;text-align:center;overflow:hidden;color:white;background:linear-gradient(145deg,#172554,#7c3aed)}
-.art{width:100%;border:2px solid #ffffffa8;padding:20px 12px}
-.tag{font-size:13px;letter-spacing:3px;text-transform:uppercase}
-#pShop{font-size:clamp(24px,4vw,39px);font-weight:900;overflow-wrap:anywhere;margin:22px 0}
-#pOffer{font-size:clamp(24px,5vw,44px);font-weight:900;overflow-wrap:anywhere}
-#pPrice{font-size:24px;font-weight:bold;margin:18px 0}
+button{border:0;border-radius:9px;padding:13px;font-size:15px;font-weight:bold;cursor:pointer}
+.primary{background:#2563eb;color:white;width:100%;margin-top:18px}
+.download{background:#15803d;color:white;width:100%;margin-top:12px}
+#poster{aspect-ratio:4/5;width:100%;padding:24px;display:flex;align-items:center;justify-content:center;text-align:center;color:white;background:linear-gradient(145deg,#172554,#7c3aed);border-radius:8px;overflow:hidden}
+.frame{width:100%;padding:22px 10px;border:2px solid #ffffffb0}
+#tag{font-size:13px;letter-spacing:3px;font-weight:bold}
+#shop{ }
+#pShop{font-size:clamp(23px,4vw,40px);font-weight:900;overflow-wrap:anywhere;margin:28px 0}
+#pOffer{font-size:clamp(26px,5vw,46px);font-weight:900;overflow-wrap:anywhere}
+#pPrice{font-size:24px;font-weight:bold;margin:22px 0}
 #pContact{font-size:15px;overflow-wrap:anywhere}
-#pMessage{font-size:14px;margin-top:22px}
+#pMessage{margin-top:25px;font-size:13px;letter-spacing:2px}
 .note{font-size:12px;color:#64748b;line-height:1.5}
-@media(max-width:700px){main{grid-template-columns:1fr}.panel{padding:16px}header h1{font-size:23px}}
+footer{text-align:center;padding:20px;color:#64748b;font-size:12px}
+@media(max-width:700px){main{grid-template-columns:1fr}.panel{padding:15px}}
 </style>
 </head>
 <body>
 <header>
 <h1>PosterMakerBot</h1>
-<p>Create promotional posters for your business — free!</p>
+<p>Design promotional posters for your business — free</p>
 </header>
 <main>
 <section class="panel">
-<h2>Make your poster</h2>
-<label for="shop">Shop or business name</label>
-<input id="shop" placeholder="e.g. Raina Fashion Store" value="YOUR BUSINESS">
-<label for="offer">Offer or headline</label>
-<input id="offer" placeholder="e.g. MEGA SALE 50% OFF" value="MEGA SALE">
+<h2>Poster details</h2>
+<label for="shop">Business name</label>
+<input id="shop" value="YOUR BUSINESS" placeholder="Business name">
+<label for="offer">Headline or offer</label>
+<input id="offer" value="MEGA SALE" placeholder="Special offer">
 <label for="price">Price or discount</label>
-<input id="price" placeholder="e.g. Starting at ₹499" value="UP TO 50% OFF">
+<input id="price" value="UP TO 50% OFF" placeholder="Starting at ₹499">
 <label for="contact">Contact details</label>
-<input id="contact" placeholder="Phone number or address" value="Call us today!">
-<label for="category">Poster category</label>
+<input id="contact" value="Call us today!" placeholder="Phone or address">
+<label for="category">Category</label>
 <select id="category">
 <option value="shop">Shop</option>
 <option value="food">Restaurant & Food</option>
@@ -54,7 +56,7 @@ button{border:0;border-radius:9px;padding:13px 16px;font-size:15px;font-weight:b
 <option value="festival">Festival</option>
 <option value="special">Special Offer</option>
 </select>
-<label for="theme">Design style</label>
+<label for="theme">Colour palette</label>
 <select id="theme">
 <option value="purple">Royal Purple</option>
 <option value="red">Bold Red</option>
@@ -62,14 +64,14 @@ button{border:0;border-radius:9px;padding:13px 16px;font-size:15px;font-weight:b
 <option value="green">Fresh Green</option>
 <option value="blue">Modern Blue</option>
 </select>
-<button class="primary" id="update">Generate Poster</button>
-<p class="note">Tip: Use short headlines for the best design. Check all prices and contact details before downloading.</p>
+<button class="primary" id="generate">Generate poster</button>
+<p class="note">Your details stay in this browser. Check all spelling and prices before downloading.</p>
 </section>
 <section class="panel">
-<h2>Live poster preview</h2>
+<h2>Poster preview</h2>
 <div id="poster">
-<div class="art">
-<div class="tag" id="pTag">SPECIAL OFFER</div>
+<div class="frame">
+<div id="tag">SPECIAL OFFER</div>
 <div id="pShop">YOUR BUSINESS</div>
 <div id="pOffer">MEGA SALE</div>
 <div id="pPrice">UP TO 50% OFF</div>
@@ -77,88 +79,93 @@ button{border:0;border-radius:9px;padding:13px 16px;font-size:15px;font-weight:b
 <div id="pMessage">DON'T MISS OUT!</div>
 </div>
 </div>
-<button class="download" id="download">Download poster as PNG</button>
-<p class="note">PNG export is generated in your browser. No account or API key is needed.</p>
+<button class="download" id="download">Download PNG poster</button>
+<p class="note">High-resolution 800 × 1000 PNG. Works without paid APIs or API keys.</p>
 </section>
 </main>
+<footer>PosterMakerBot · Free browser-based poster creation</footer>
 <script>
 const $=id=>document.getElementById(id);
-const themes={
-purple:['#172554','#7c3aed'],
+const palettes={
+purple:['#24104f','#9333ea'],
 red:['#7f1d1d','#ef4444'],
 gold:['#422006','#d97706'],
 green:['#064e3b','#22c55e'],
 blue:['#082f49','#0284c7']
 };
-const labels={
-shop:'SPECIAL SHOP OFFER',
-food:'DELICIOUS DEALS',
-fashion:'FASHION SALE',
-festival:'FESTIVAL SPECIAL',
-special:'LIMITED-TIME OFFER'
+const configs={
+shop:{tag:'YOUR LOCAL SHOP',message:'GREAT DEALS • GREAT VALUE',colors:['#172554','#2563eb']},
+food:{tag:'FRESH • TASTY • DELICIOUS',message:'MADE WITH LOVE',colors:['#7f1d1d','#ea580c']},
+fashion:{tag:'NEW SEASON • NEW STYLE',message:'FIND YOUR STYLE',colors:['#500724','#db2777']},
+festival:{tag:'CELEBRATE TOGETHER',message:'WISHING YOU JOY & HAPPINESS',colors:['#78350f','#d97706']},
+special:{tag:'LIMITED-TIME OFFER',message:"DON'T MISS OUT!",colors:['#172554','#7c3aed']}
 };
 function update(){
+const cat=$('category').value;
+const theme=palettes[$('theme').value];
+const config=configs[cat];
 $('pShop').textContent=$('shop').value.trim()||'YOUR BUSINESS';
 $('pOffer').textContent=$('offer').value.trim()||'SPECIAL OFFER';
 $('pPrice').textContent=$('price').value.trim();
 $('pContact').textContent=$('contact').value.trim();
-$('pTag').textContent=labels[$('category').value];
-const c=themes[$('theme').value];
-$('poster').style.background=`linear-gradient(145deg,${c[0]},${c[1]})`;
-$('pMessage').textContent=$('category').value==='festival'?'CELEBRATE WITH US!':"DON'T MISS OUT!";
+$('tag').textContent=config.tag;
+$('pMessage').textContent=config.message;
+let colors=theme;
+if($('theme').value==='purple'&&cat!=='special')colors=config.colors;
+$('poster').style.background=`linear-gradient(145deg,${colors[0]},${colors[1]})`;
 }
-$('update').addEventListener('click',update);
 ['shop','offer','price','contact','category','theme'].forEach(id=>{
 $(id).addEventListener('input',update);
 });
-function escapeXml(s){
+$('generate').addEventListener('click',update);
+function xml(s){
 return String(s).replace(/[<>&'"]/g,c=>({'<':'&lt;','>':'&gt;','&':'&amp;',"'":'&apos;','"':'&quot;'}[c]));
 }
-function wrapText(text,max){
-const words=text.split(/\s+/);const lines=[];let line='';
+function lines(s,y,size,max=25){
+const words=String(s).split(/\s+/),result=[];let line='';
 for(const word of words){
-if((line+' '+word).trim().length>max&&line){lines.push(line);line=word}
-else{line=(line+' '+word).trim()}
+if((line+' '+word).trim().length>max&&line){result.push(line);line=word}
+else line=(line+' '+word).trim();
 }
-if(line)lines.push(line);
-return lines.slice(0,5);
-}
-function addLines(text,x,y,max,fontSize,weight,fill){
-return wrapText(text,max).map((line,i)=>
-`<text x="${x}" y="${y+i*fontSize*1.2}" text-anchor="middle" font-family="Arial,sans-serif" font-size="${fontSize}" font-weight="${weight}" fill="${fill}">${escapeXml(line)}</text>`
+if(line)result.push(line);
+return result.slice(0,4).map((v,i)=>
+`<text x="400" y="${y+i*size*1.2}" text-anchor="middle" font-family="Arial,sans-serif" font-size="${size}" font-weight="bold" fill="white">${xml(v)}</text>`
 ).join('');
 }
 $('download').addEventListener('click',()=>{
 update();
-const c=themes[$('theme').value];
-const svg=`<svg xmlns="http://www.w3.org/2000/svg" width="800" height="1000" viewBox="0 0 800 1000">
-<defs><linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="${c[0]}"/><stop offset="1" stop-color="${c[1]}"/></linearGradient></defs>
-<rect width="800" height="1000" fill="url(#bg)"/>
-<rect x="35" y="35" width="730" height="930" rx="18" fill="none" stroke="#ffffff" stroke-opacity=".8" stroke-width="4"/>
-<text x="400" y="155" text-anchor="middle" font-family="Arial,sans-serif" font-size="27" letter-spacing="5" fill="white">${escapeXml(labels[$('category').value])}</text>
-${addLines($('shop').value||'YOUR BUSINESS',400,300,23,56,900,'white')}
-${addLines($('offer').value||'SPECIAL OFFER',400,475,25,53,900,'#ffffff')}
-<line x1="170" y1="570" x2="630" y2="570" stroke="white" stroke-width="3"/>
-${addLines($('price').value,400,650,27,39,700,'#ffffff')}
-${addLines($('contact').value,400,770,32,26,400,'#ffffff')}
-<text x="400" y="900" text-anchor="middle" font-family="Arial,sans-serif" font-size="24" font-weight="bold" fill="white">${$('category').value==='festival'?'CELEBRATE WITH US!':"DON'T MISS OUT!"}</text>
+const cat=$('category').value;
+const theme=palettes[$('theme').value];
+const config=configs[cat];
+let colors=theme;
+if($('theme').value==='purple'&&cat!=='special')colors=config.colors;
+const svg=`<svg xmlns="http://www.w3.org/2000/svg" width="800" height="1000">
+<defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop stop-color="${colors[0]}"/><stop offset="1" stop-color="${colors[1]}"/></linearGradient></defs>
+<rect width="800" height="1000" fill="url(#g)"/>
+<rect x="35" y="35" width="730" height="930" rx="12" fill="none" stroke="white" stroke-width="4"/>
+<text x="400" y="150" text-anchor="middle" font-family="Arial,sans-serif" font-size="25" letter-spacing="3" fill="white">${xml(config.tag)}</text>
+${lines($('shop').value||'YOUR BUSINESS',300,52,22)}
+${lines($('offer').value||'SPECIAL OFFER',470,52,25)}
+<line x1="170" y1="565" x2="630" y2="565" stroke="white" stroke-width="3"/>
+${lines($('price').value,650,37,27)}
+${lines($('contact').value,775,25,34)}
+<text x="400" y="900" text-anchor="middle" font-family="Arial,sans-serif" font-size="22" font-weight="bold" fill="white">${xml(config.message)}</text>
 </svg>`;
-const blob=new Blob([svg],{type:'image/svg+xml;charset=utf-8'});
-const url=URL.createObjectURL(blob);
+const url=URL.createObjectURL(new Blob([svg],{type:'image/svg+xml;charset=utf-8'}));
 const img=new Image();
 img.onload=()=>{
 const canvas=document.createElement('canvas');
 canvas.width=800;canvas.height=1000;
 const ctx=canvas.getContext('2d');
-ctx.drawImage(img,0,0);
+ctx.drawImage(img,0,0,800,1000);
 URL.revokeObjectURL(url);
-canvas.toBlob(png=>{
-if(!png){alert('Could not create PNG. Please try again.');return}
-const link=document.createElement('a');
-link.href=URL.createObjectURL(png);
-link.download='PosterMakerBot.png';
-link.click();
-setTimeout(()=>URL.revokeObjectURL(link.href),2000);
+canvas.toBlob(blob=>{
+if(!blob){alert('PNG creation failed. Please try again.');return}
+const a=document.createElement('a');
+a.href=URL.createObjectURL(blob);
+a.download='PosterMakerBot.png';
+a.click();
+setTimeout(()=>URL.revokeObjectURL(a.href),3000);
 },'image/png');
 };
 img.onerror=()=>{URL.revokeObjectURL(url);alert('Export failed. Please try again.')};
