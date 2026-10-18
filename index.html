@@ -2,343 +2,451 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>PosterMakerBot Pro</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>PosterMakerBot PRO</title>
 <style>
 *{box-sizing:border-box}
-body{margin:0;background:#0b1020;color:#f8fafc;font-family:Arial,sans-serif}
-header{text-align:center;padding:25px 12px;background:#111a33}
-header h1{margin:0;font-size:30px}
-header p{color:#b9c7e5;margin:8px 0 0}
-main{max-width:1100px;margin:22px auto;padding:0 14px;display:grid;grid-template-columns:340px 1fr;gap:20px}
-.panel{background:#151d32;border:1px solid #293550;border-radius:16px;padding:18px;min-width:0}
-h2{font-size:18px;margin:0 0 16px}
-label{display:block;font-size:13px;font-weight:bold;margin:13px 0 6px;color:#dce5f8}
-input,select{width:100%;padding:11px;border-radius:8px;border:1px solid #3b4965;background:#0b1224;color:white;font-size:14px}
-input[type=file]{font-size:12px}
-button{border:0;border-radius:9px;padding:13px;font-weight:bold;font-size:14px;cursor:pointer}
-.primary{width:100%;background:#7c3aed;color:white;margin-top:16px}
-.secondary{width:100%;background:#273654;color:white;margin-top:9px}
-.download{width:100%;background:#16a34a;color:white;margin-top:12px}
-.canvasbox{background:#080d19;padding:10px;border-radius:10px}
+body{margin:0;background:#080d19;color:#f4f6ff;font-family:Arial,sans-serif}
+header{text-align:center;padding:26px 14px;background:linear-gradient(120deg,#111a32,#202c4a);border-bottom:1px solid #35415f}
+header h1{margin:0;font-size:30px;letter-spacing:-1px}
+header p{color:#b6c3df;margin:9px 0 0;font-size:14px}
+main{max-width:1250px;margin:auto;padding:22px;display:grid;grid-template-columns:340px minmax(0,1fr);gap:24px}
+.panel{background:#111827;border:1px solid #29344b;border-radius:18px;padding:20px;height:max-content}
+h2{font-size:18px;margin:0 0 18px}
+label{display:block;font-size:13px;color:#c7d1e7;margin:15px 0 7px}
+input,select{width:100%;padding:12px;border-radius:9px;background:#0b1220;color:white;border:1px solid #35415b;font-size:14px}
+input[type=file]{padding:9px;font-size:12px}
+button{width:100%;padding:13px;border:0;border-radius:10px;font-weight:bold;font-size:14px;cursor:pointer;margin-top:12px}
+.primary{background:linear-gradient(100deg,#8065ff,#bd65f8);color:white}
+.secondary{background:#202b40;color:#f4f6ff;border:1px solid #3b4963}
+button:hover{filter:brightness(1.12)}
+.preview{min-width:0;text-align:center}
+.preview h2{text-align:left;margin:0 0 12px}
+.canvas-wrap{background:#111827;padding:12px;border-radius:16px;border:1px solid #29344b}
 canvas{display:block;width:100%;height:auto;border-radius:5px}
-.note{font-size:12px;line-height:1.6;color:#aab7d0}
-.row{display:grid;grid-template-columns:1fr 1fr;gap:10px}
-footer{text-align:center;padding:20px;color:#91a1bd;font-size:12px}
-@media(max-width:760px){main{grid-template-columns:1fr}.panel{padding:15px}header h1{font-size:25px}}
+.hint{font-size:12px;color:#9aa9c4;line-height:1.6;text-align:left;margin-top:13px}
+.status{font-size:12px;color:#b7c6e5;min-height:16px;margin-top:10px}
+footer{text-align:center;color:#8492ad;padding:0 15px 25px;font-size:12px}
+@media(max-width:800px){main{grid-template-columns:1fr;padding:13px;gap:18px}.panel{padding:16px}header h1{font-size:25px}}
 </style>
 </head>
 <body>
 <header>
-<h1>PosterMakerBot PRO</h1>
-<p>Design eye-catching business posters for free</p>
+  <h1>✦ PosterMakerBot PRO</h1>
+  <p>Create striking promotional posters in seconds — free</p>
 </header>
+
 <main>
 <section class="panel">
-<h2>Customize your design</h2>
-<label for="shop">Business name</label>
-<input id="shop" value="RAINA FASHION" maxlength="55">
+<h2>✦ Poster Studio</h2>
 
-<label for="offer">Main headline</label>
-<input id="offer" value="MEGA SALE" maxlength="65">
+<label for="brand">Business / Brand Name</label>
+<input id="brand" value="YOUR BRAND" maxlength="38">
 
-<div class="row">
-<div>
-<label for="price">Offer / price</label>
-<input id="price" value="50% OFF" maxlength="35">
-</div>
-<div>
-<label for="contact">Contact</label>
-<input id="contact" value="Call Today" maxlength="45">
-</div>
-</div>
+<label for="headline">Main Headline</label>
+<input id="headline" value="BIG SALE" maxlength="55">
 
-<label for="category">Business category</label>
+<label for="offer">Offer or Price</label>
+<input id="offer" value="UP TO 50% OFF" maxlength="35">
+
+<label for="contact">Contact / Website</label>
+<input id="contact" value="SHOP NOW • YOUR WEBSITE" maxlength="45">
+
+<label for="category">Poster Category</label>
 <select id="category">
 <option value="fashion">Fashion & Clothing</option>
 <option value="food">Restaurant & Food</option>
-<option value="shop">Retail Shop</option>
-<option value="festival">Festival</option>
-<option value="special">Special Offer</option>
+<option value="retail">Retail Shop</option>
+<option value="festival">Festival & Celebration</option>
+<option value="business">Business Promotion</option>
 </select>
 
-<label for="style">Poster layout</label>
+<label for="style">Premium Design Style</label>
 <select id="style">
-<option value="editorial">Luxury Editorial</option>
-<option value="bold">Bold Sale Campaign</option>
-<option value="modern">Modern Geometric</option>
-<option value="festive">Decorative Celebration</option>
+<option value="random">🎲 Surprise Me — Random Style</option>
+<option value="luxury">01 — Luxury Editorial</option>
+<option value="bold">02 — Bold Sale Campaign</option>
+<option value="food">03 — Food Advertisement</option>
+<option value="editorial">04 — Magazine Editorial</option>
+<option value="geometric">05 — Modern Geometric</option>
+<option value="festive">06 — Festive Celebration</option>
+<option value="minimal">07 — Minimal Premium</option>
+<option value="neon">08 — Neon Night</option>
 </select>
 
-<label for="photo">Upload a product or background photo</label>
-<input type="file" id="photo" accept="image/png,image/jpeg,image/webp">
+<label for="photo">Upload Your Product / Photo</label>
+<input id="photo" type="file" accept="image/*">
 
-<p class="note">Use a photo you own or have permission to use. Product photos make your posters much more distinctive.</p>
+<button class="primary" id="generate">✦ Generate New Design</button>
+<button class="secondary" id="download">⬇ Download High-Quality PNG</button>
+<button class="secondary" id="remove">Remove Uploaded Photo</button>
 
-<button class="primary" id="generate">Generate New Design</button>
-<button class="secondary" id="clear">Remove Photo</button>
-<button class="download" id="download">Download High-Quality PNG</button>
-<p class="note">Free browser-based editor. No login, paid API, or API key required.</p>
+<p class="hint">Tip: Try different styles with the same text. Upload a clear product photo for a more professional result. All designs are rendered in your browser.</p>
+<div class="status" id="status"></div>
 </section>
 
-<section class="panel">
-<h2>Live poster preview</h2>
-<div class="canvasbox">
-<canvas id="poster" width="900" height="1200"></canvas>
+<section class="preview">
+<h2>Live Poster Preview · 1080 × 1350</h2>
+<div class="canvas-wrap">
+<canvas id="poster" width="1080" height="1350"></canvas>
 </div>
-<p class="note">Export size: 900 × 1200 pixels. Preview and download use the same design.</p>
 </section>
 </main>
-<footer>PosterMakerBot · Create responsibly using photos you have permission to use.</footer>
+<footer>PosterMakerBot PRO · Free browser-based poster design studio</footer>
 
 <script>
-const $=id=>document.getElementById(id);
-const canvas=$('poster');
-const ctx=canvas.getContext('2d');
-let photo=null;
-let design=0;
+const canvas = document.getElementById("poster");
+const ctx = canvas.getContext("2d");
+const W = canvas.width, H = canvas.height;
+let uploadedImage = null;
+let designNumber = 0;
 
-const palettes={
-fashion:['#160d20','#ad4677','#f9d9a5'],
-food:['#35120c','#e35b25','#ffe0a3'],
-shop:['#071d36','#1674b8','#f4e9cf'],
-festival:['#47132c','#d98b29','#fff0bd'],
-special:['#111827','#6d28d9','#facc15']
+const palettes = {
+  luxury: ["#10100f","#d9b56d","#f7ead1"],
+  bold: ["#f5e925","#f52d35","#151515"],
+  food: ["#24120e","#ffb347","#fff0d2"],
+  editorial: ["#e9e0d2","#c94d36","#24221f"],
+  geometric: ["#102e36","#5be0c2","#f4f5eb"],
+  festive: ["#3c102c","#f5bd55","#fff0cc"],
+  minimal: ["#f1eee7","#272b32","#bd8b5c"],
+  neon: ["#100b25","#ff42d0","#72fff1"]
 };
 
-function rounded(x,y,w,h,r,color){
-ctx.fillStyle=color;
-ctx.beginPath();
-ctx.roundRect(x,y,w,h,r);
-ctx.fill();
+const $ = id => document.getElementById(id);
+const random = (min,max) => min + Math.random()*(max-min);
+
+function text(id, fallback) {
+  return $(id).value.trim() || fallback;
+}
+function roundedRect(x,y,w,h,r,fill) {
+  ctx.beginPath();
+  ctx.roundRect(x,y,w,h,r);
+  ctx.fillStyle=fill;
+  ctx.fill();
+}
+function gradient(c1,c2,x=0,y=0,w=W,h=H) {
+  const g=ctx.createLinearGradient(x,y,x+w,y+h);
+  g.addColorStop(0,c1);
+  g.addColorStop(1,c2);
+  return g;
+}
+function line(x1,y1,x2,y2,color,width=2) {
+  ctx.beginPath();
+  ctx.moveTo(x1,y1);ctx.lineTo(x2,y2);
+  ctx.strokeStyle=color;ctx.lineWidth=width;ctx.stroke();
+}
+function circle(x,y,r,color) {
+  ctx.beginPath();ctx.arc(x,y,r,0,Math.PI*2);
+  ctx.fillStyle=color;ctx.fill();
+}
+function polygon(points,color) {
+  ctx.beginPath();
+  points.forEach((p,i)=>i?ctx.lineTo(p[0],p[1]):ctx.moveTo(p[0],p[1]));
+  ctx.closePath();ctx.fillStyle=color;ctx.fill();
+}
+function wrapText(str,x,y,maxWidth,lineHeight,maxLines=4) {
+  const words=str.split(/\s+/);
+  let lineText="", count=0;
+  for(let i=0;i<words.length;i++){
+    const test=lineText?lineText+" "+words[i]:words[i];
+    if(ctx.measureText(test).width>maxWidth&&lineText){
+      ctx.fillText(lineText,x,y);
+      y+=lineHeight;count++;lineText=words[i];
+      if(count>=maxLines-1)break;
+    }else lineText=test;
+  }
+  const remaining=words.slice(count ? 0 : words.length);
+  if(lineText)ctx.fillText(lineText,x,y);
+  return y;
+}
+function drawWrapped(str,x,y,maxWidth,lineHeight,maxLines=3) {
+  const words=str.split(/\s+/);
+  let current="", rows=[];
+  for(const word of words){
+    const test=current?current+" "+word:word;
+    if(ctx.measureText(test).width>maxWidth&&current){
+      rows.push(current);current=word;
+    }else current=test;
+  }
+  if(current)rows.push(current);
+  if(rows.length>maxLines){
+    rows=rows.slice(0,maxLines);
+    rows[maxLines-1]=rows[maxLines-1].replace(/[.,;:!?]?$/,"")+"…";
+  }
+  rows.forEach((row,i)=>ctx.fillText(row,x,y+i*lineHeight));
+  return y+rows.length*lineHeight;
+}
+function fitText(str,x,y,maxWidth,size,color,weight="900",align="left") {
+  ctx.textAlign=align;
+  let s=size;
+  do {
+    ctx.font=`${weight} ${s}px Arial, sans-serif`;
+    s-=2;
+  } while(ctx.measureText(str).width>maxWidth&&s>20);
+  ctx.fillStyle=color;ctx.fillText(str,x,y);
+}
+function coverImage(img,x,y,w,h,r=0) {
+  ctx.save();
+  ctx.beginPath();
+  if(r)ctx.roundRect(x,y,w,h,r);else ctx.rect(x,y,w,h);
+  ctx.clip();
+  const scale=Math.max(w/img.width,h/img.height);
+  const iw=img.width*scale,ih=img.height*scale;
+  ctx.drawImage(img,x+(w-iw)/2,y+(h-ih)/2,iw,ih);
+  ctx.restore();
+}
+function background(c1,c2) {
+  ctx.fillStyle=gradient(c1,c2,W,H);
+  ctx.fillRect(0,0,W,H);
+}
+function topLabel(label,color,x=65,y=85) {
+  ctx.font="bold 20px Arial";
+  ctx.fillStyle=color;
+  ctx.fillText(label.toUpperCase(),x,y);
+}
+function brand(name,color,x=65,y=1270) {
+  ctx.fillStyle=color;
+  ctx.font="bold 23px Arial";
+  ctx.fillText(name.toUpperCase(),x,y);
+}
+function footer(contact,color,x=65,y=1315) {
+  ctx.font="bold 19px Arial";
+  ctx.fillStyle=color;
+  ctx.fillText(contact.toUpperCase(),x,y);
+}
+function photoOrGraphic(x,y,w,h,round=0) {
+  if(uploadedImage) {
+    coverImage(uploadedImage,x,y,w,h,round);
+    ctx.save();
+    if(round) {
+      ctx.beginPath();ctx.roundRect(x,y,w,h,round);ctx.clip();
+    }else ctx.beginPath(),ctx.rect(x,y,w,h),ctx.clip();
+    ctx.fillStyle="rgba(0,0,0,.10)";ctx.fillRect(x,y,w,h);
+    ctx.restore();
+  } else {
+    roundedRect(x,y,w,h,round,gradient("#45506c","#171c30",x,y,w,h));
+    // Original abstract product-like artwork
+    circle(x+w*.68,y+h*.32,Math.min(w,h)*.19,"rgba(255,255,255,.10)");
+    circle(x+w*.31,y+h*.69,Math.min(w,h)*.27,"rgba(255,255,255,.07)");
+    polygon([[x+w*.15,y+h*.75],[x+w*.5,y+h*.19],[x+w*.82,y+h*.75]],"rgba(255,255,255,.08)");
+    ctx.fillStyle="rgba(255,255,255,.78)";
+    ctx.font="bold 18px Arial";ctx.textAlign="center";
+    ctx.fillText("YOUR PRODUCT PHOTO",x+w/2,y+h*.92);
+    ctx.textAlign="left";
+  }
+}
+function badge(label,x,y,r,fill,color="#fff") {
+  circle(x,y,r,fill);
+  ctx.fillStyle=color;ctx.textAlign="center";
+  let size=label.length>12?19:label.length>8?23:28;
+  ctx.font=`900 ${size}px Arial`;
+  drawWrapped(label,x,y-8,r*1.45,size+3,3);
+  ctx.textAlign="left";
+}
+function decorativeDots(color) {
+  for(let row=0;row<8;row++)for(let col=0;col<6;col++)
+    circle(830+col*35,190+row*35,3,color);
+}
+function luxury(d) {
+  const [bg,accent,light]=d;
+  background(bg,"#26231d");
+  ctx.strokeStyle=accent;ctx.lineWidth=2;
+  ctx.strokeRect(30,30,W-60,H-60);
+  ctx.strokeRect(43,43,W-86,H-86);
+  topLabel("THE EXCLUSIVE COLLECTION",accent,65,90);
+  line(65,125,390,125,accent,3);
+  photoOrGraphic(65,165,950,600,5);
+  ctx.fillStyle=accent;ctx.font="italic 28px Georgia";
+  ctx.fillText("A NEW EXPERIENCE",68,820);
+  ctx.fillStyle=light;
+  ctx.font="bold 88px Georgia";
+  let end=drawWrapped(text("headline","Luxury Redefined").toUpperCase(),65,925,900,95,3);
+  ctx.fillStyle=accent;ctx.font="bold 43px Arial";
+  ctx.fillText(text("offer","EXCLUSIVE OFFER"),65,end+28);
+  line(65,end+60,1015,end+60,accent,2);
+  brand(text("brand","YOUR BRAND"),light,65,1240);
+  footer(text("contact","DISCOVER MORE"),accent,65,1290);
+}
+function bold(d) {
+  const [bg,accent,light]=d;
+  background(bg,accent);
+  polygon([[0,0],[W,0],[W,250],[0,420]],light);
+  polygon([[0,690],[W,520],[W,930],[0,1090]],accent);
+  topLabel("LIMITED TIME • DON'T MISS OUT",bg,55,80);
+  ctx.fillStyle=bg;ctx.font="900 112px Arial";
+  let end=drawWrapped(text("headline","MEGA SALE").toUpperCase(),55,240,950,112,3);
+  photoOrGraphic(75,Math.max(430,end+40),930,430,18);
+  badge(text("offer","50% OFF"),W-145,Math.max(430,end+40)+45,112,light,bg);
+  brand(text("brand","YOUR BRAND"),light,55,1210);
+  footer(text("contact","SHOP NOW"),bg,55,1290);
+}
+function food(d) {
+  const [bg,accent,light]=d;
+  background(bg,"#502317");
+  circle(920,130,230,"rgba(255,160,55,.09)");
+  topLabel("FRESH • FLAVOR • QUALITY",accent,60,85);
+  ctx.fillStyle=light;ctx.font="900 88px Georgia";
+  let end=drawWrapped(text("headline","TASTE THE DIFFERENCE").toUpperCase(),60,210,920,90,3);
+  photoOrGraphic(55,Math.max(370,end+30),970,540,30);
+  badge(text("offer","SPECIAL OFFER"),W-145,Math.max(370,end+30)+45,115,accent,bg);
+  ctx.fillStyle=accent;ctx.font="italic 30px Georgia";
+  ctx.fillText("Made fresh. Served with love.",60,1080);
+  brand(text("brand","YOUR RESTAURANT"),light,60,1220);
+  footer(text("contact","ORDER NOW"),accent,60,1290);
+}
+function editorial(d) {
+  const [bg,accent,light]=d;
+  background(bg,light);
+  topLabel("THE NEW ISSUE  /  STYLE & CULTURE",accent,60,70);
+  line(60,100,1020,100,accent,2);
+  photoOrGraphic(60,135,610,760,0);
+  ctx.fillStyle=accent;ctx.font="bold 18px Arial";
+  ctx.fillText("FEATURED STORY",710,190);
+  ctx.fillStyle=light;ctx.font="900 61px Georgia";
+  drawWrapped(text("headline","Made to Stand Out"),710,280,315,70,5);
+  line(710,650,1000,650,accent,3);
+  ctx.fillStyle=accent;ctx.font="bold 32px Arial";
+  drawWrapped(text("offer","NEW SEASON"),710,720,300,40,3);
+  ctx.fillStyle=light;ctx.font="italic 25px Georgia";
+  ctx.fillText("Designed for you.",710,850);
+  polygon([[60,970],[1020,970],[1020,1180],[60,1180]],accent);
+  ctx.fillStyle=bg;ctx.font="900 68px Georgia";
+  drawWrapped(text("brand","YOUR BRAND").toUpperCase(),90,1055,860,75,2);
+  ctx.fillStyle=light;ctx.font="bold 21px Arial";
+  ctx.fillText(text("contact","EXPLORE THE COLLECTION").toUpperCase(),90,1270);
+}
+function geometric(d) {
+  const [bg,accent,light]=d;
+  background(bg,"#071a22");
+  polygon([[0,0],[600,0],[220,610],[0,680]],accent);
+  polygon([[W,170],[W,770],[690,550]],"rgba(255,255,255,.07)");
+  decorativeDots("rgba(255,255,255,.24)");
+  topLabel("FUTURE FORWARD",light,65,85);
+  photoOrGraphic(330,180,680,600,16);
+  ctx.fillStyle=light;ctx.font="900 88px Arial";
+  let end=drawWrapped(text("headline","THINK DIFFERENT").toUpperCase(),65,850,950,95,3);
+  roundedRect(65,end+15,450,75,37,accent);
+  ctx.fillStyle=bg;ctx.font="bold 29px Arial";
+  ctx.fillText(text("offer","MADE FOR YOU").toUpperCase(),90,end+62);
+  brand(text("brand","YOUR BRAND"),light,65,1230);
+  footer(text("contact","LEARN MORE"),accent,65,1290);
+}
+function festive(d) {
+  const [bg,accent,light]=d;
+  background(bg,"#170b23");
+  for(let i=0;i<24;i++){
+    const x=50+(i%6)*195,y=80+Math.floor(i/6)*285;
+    circle(x,y,random(3,8),accent);
+    line(x-12,y+14,x+12,y-14,accent,2);
+  }
+  ctx.strokeStyle=accent;ctx.lineWidth=5;
+  ctx.strokeRect(35,35,W-70,H-70);
+  ctx.strokeRect(50,50,W-100,H-100);
+  topLabel("CELEBRATE IN STYLE",accent,65,105);
+  photoOrGraphic(100,160,880,490,20);
+  ctx.textAlign="center";ctx.fillStyle=light;ctx.font="bold 78px Georgia";
+  drawWrapped(text("headline","A SEASON OF JOY").toUpperCase(),W/2,765,920,85,3);
+  line(280,970,800,970,accent,3);
+  ctx.fillStyle=accent;ctx.font="900 52px Arial";
+  drawWrapped(text("offer","SPECIAL FESTIVE OFFER"),W/2,1050,900,60,2);
+  ctx.textAlign="center";ctx.fillStyle=light;ctx.font="bold 24px Arial";
+  ctx.fillText(text("brand","YOUR BRAND").toUpperCase(),W/2,1215);
+  ctx.font="20px Arial";ctx.fillText(text("contact","CELEBRATE WITH US").toUpperCase(),W/2,1270);
+  ctx.textAlign="left";
+}
+function minimal(d) {
+  const [bg,accent,light]=d;
+  background(bg,"#ddd6ca");
+  topLabel("LESS, BUT BETTER",accent,65,80);
+  line(65,110,1015,110,accent,2);
+  photoOrGraphic(65,150,950,600,0);
+  ctx.fillStyle=accent;ctx.font="italic 34px Georgia";
+  ctx.fillText("Introducing",65,820);
+  ctx.fillStyle=light;ctx.font="900 92px Arial";
+  let end=drawWrapped(text("headline","THE NEW STANDARD").toUpperCase(),65,930,940,100,3);
+  ctx.fillStyle=accent;ctx.font="bold 38px Arial";
+  ctx.fillText(text("offer","NOW AVAILABLE"),65,end+20);
+  line(65,end+55,1015,end+55,accent,2);
+  brand(text("brand","YOUR BRAND"),light,65,1220);
+  footer(text("contact","DISCOVER MORE"),accent,65,1280);
+}
+function neon(d) {
+  const [bg,accent,light]=d;
+  background(bg,"#281044");
+  for(let i=0;i<9;i++){
+    ctx.strokeStyle=i%2?accent:light;ctx.globalAlpha=.18;
+    ctx.lineWidth=3;ctx.beginPath();
+    ctx.arc(830,280,90+i*30,0,Math.PI*2);ctx.stroke();
+  }
+  ctx.globalAlpha=1;
+  topLabel("AFTER DARK • ALL NIGHT",light,60,85);
+  ctx.shadowColor=accent;ctx.shadowBlur=35;
+  ctx.strokeStyle=accent;ctx.lineWidth=4;
+  ctx.strokeRect(45,135,990,570);ctx.shadowBlur=0;
+  photoOrGraphic(65,155,950,530,8);
+  ctx.fillStyle=light;ctx.font="900 94px Arial";
+  let end=drawWrapped(text("headline","OWN THE NIGHT").toUpperCase(),60,830,950,100,3);
+  ctx.fillStyle=accent;ctx.font="900 48px Arial";
+  ctx.fillText(text("offer","EXCLUSIVE DEAL"),60,end+25);
+  brand(text("brand","YOUR BRAND"),light,60,1220);
+  footer(text("contact","JOIN US NOW"),accent,60,1285);
 }
 
-function text(str,x,y,size,color,weight='bold',align='center'){
-ctx.fillStyle=color;
-ctx.font=`${weight} ${size}px Arial,sans-serif`;
-ctx.textAlign=align;
-ctx.textBaseline='middle';
-ctx.fillText(str,x,y);
+const drawFunctions={luxury,bold,food,editorial,geometric,festive,minimal,neon};
+
+function generate() {
+  let style=$("style").value;
+  if(style==="random"){
+    const options=Object.keys(drawFunctions);
+    style=options[Math.floor(Math.random()*options.length)];
+  }
+  const category=$("category").value;
+  // Use the selected category's visual palette for a coordinated design.
+  let palette=palettes[style];
+  if(category==="food"&&style==="random")palette=palettes.food;
+  ctx.clearRect(0,0,W,H);
+  drawFunctions[style](palette);
+  designNumber++;
+  $("status").textContent="Design "+designNumber+" created • "+style.toUpperCase()+" style";
 }
 
-function fitted(str,maxWidth,start=82,min=28){
-let size=start;
-while(size>min){
-ctx.font=`900 ${size}px Arial,sans-serif`;
-if(ctx.measureText(str).width<=maxWidth)break;
-size-=2;
-}
-return size;
-}
-
-function wrap(str,maxWidth,size,maxLines=3){
-ctx.font=`900 ${size}px Arial,sans-serif`;
-const words=String(str||'').trim().split(/\s+/);
-const lines=[];
-let line='';
-for(const word of words){
-const test=(line+' '+word).trim();
-if(ctx.measureText(test).width>maxWidth&&line){
-lines.push(line);
-line=word;
-}else line=test;
-}
-if(line)lines.push(line);
-return lines.slice(0,maxLines);
-}
-
-function heading(str,x,y,maxWidth,size,color,lineGap,maxLines=3){
-const lines=wrap(str,maxWidth,size,maxLines);
-lines.forEach((line,i)=>{
-const s=fitted(line,maxWidth,size,25);
-text(line,x,y+i*lineGap,s,color,'900');
+$("generate").addEventListener("click",generate);
+$("download").addEventListener("click",()=>{
+  try{
+    const link=document.createElement("a");
+    link.download="PosterMakerBot-PRO-"+Date.now()+".png";
+    link.href=canvas.toDataURL("image/png");
+    link.click();
+    $("status").textContent="Your high-quality PNG download has started.";
+  }catch(e){
+    $("status").textContent="Download failed. Try generating the design again.";
+  }
 });
-return lines.length*lineGap;
-}
-
-function background(c){
-const g=ctx.createLinearGradient(0,0,900,1200);
-g.addColorStop(0,c[0]);
-g.addColorStop(.58,c[1]);
-g.addColorStop(1,c[0]);
-ctx.fillStyle=g;
-ctx.fillRect(0,0,900,1200);
-}
-
-function cropPhoto(img,x,y,w,h){
-const scale=Math.max(w/img.width,h/img.height);
-const sw=w/scale,sh=h/scale;
-const sx=(img.width-sw)/2,sy=(img.height-sh)/2;
-ctx.save();
-ctx.beginPath();
-ctx.rect(x,y,w,h);
-ctx.clip();
-ctx.drawImage(img,sx,sy,sw,sh,x,y,w,h);
-ctx.restore();
-}
-
-function decorations(c,style){
-ctx.save();
-if(style==='modern'){
-ctx.globalAlpha=.22;
-ctx.fillStyle=c[2];
-ctx.beginPath();
-ctx.arc(790,120,210,0,Math.PI*2);
-ctx.fill();
-ctx.beginPath();
-ctx.moveTo(0,780);ctx.lineTo(310,600);ctx.lineTo(420,1200);ctx.lineTo(0,1200);
-ctx.closePath();ctx.fill();
-}else if(style==='festive'){
-ctx.strokeStyle=c[2];ctx.lineWidth=4;
-for(let i=0;i<9;i++){
-ctx.beginPath();
-ctx.arc(450,400,90+i*32,0,Math.PI*2);
-ctx.stroke();
-}
-}else{
-ctx.globalAlpha=.2;
-ctx.strokeStyle=c[2];ctx.lineWidth=3;
-for(let i=0;i<10;i++){
-ctx.beginPath();
-ctx.moveTo(i*110,0);ctx.lineTo(i*110+350,1200);
-ctx.stroke();
-}
-}
-ctx.restore();
-}
-
-function draw(){
-const cat=$('category').value;
-const style=$('style').value;
-const c=palettes[cat];
-const shop=$('shop').value.trim()||'YOUR BUSINESS';
-const offer=$('offer').value.trim()||'SPECIAL OFFER';
-const price=$('price').value.trim();
-const contact=$('contact').value.trim();
-
-background(c);
-decorations(c,style);
-
-ctx.strokeStyle=c[2];
-ctx.lineWidth=5;
-ctx.strokeRect(26,26,848,1148);
-
-const topTag={
-fashion:'STYLE • QUALITY • ELEGANCE',
-food:'FRESH • TASTY • DELICIOUS',
-shop:'YOUR LOCAL FAVOURITE',
-festival:'CELEBRATE IN STYLE',
-special:'A DEAL WORTH DISCOVERING'
-}[cat];
-
-if(style==='editorial'){
-text('✦  '+topTag+'  ✦',450,85,23,c[2]);
-text(shop.toUpperCase(),450,155,fitted(shop.toUpperCase(),790,57,27),c[2]);
-if(photo)cropPhoto(photo,95,215,710,440);
-else{
-rounded(95,215,710,440,18,'#ffffff12');
-text('YOUR PRODUCT',450,400,36,c[2]);
-text('ADD A PHOTO FOR MORE IMPACT',450,455,18,'#ffffff');
-}
-ctx.fillStyle=c[0];
-ctx.fillRect(55,660,790,430);
-heading(offer.toUpperCase(),450,730,700,78,'#ffffff',88,3);
-rounded(180,920,540,90,12,c[2]);
-text(price.toUpperCase(),450,965,fitted(price.toUpperCase(),490,51,25),c[0]);
-text(contact,450,1060,28,'#ffffff','bold');
-text('DISCOVER MORE  •  SHOP TODAY',450,1120,19,c[2]);
-}else if(style==='bold'){
-text(topTag,450,100,24,c[2]);
-heading(offer.toUpperCase(),450,195,790,105,'#ffffff',110,3);
-if(photo)cropPhoto(photo,95,470,710,390);
-else{
-rounded(95,470,710,390,18,'#ffffff12');
-text('YOUR PRODUCT PHOTO',450,660,34,c[2]);
-}
-rounded(115,865,670,135,18,c[2]);
-text(price.toUpperCase(),450,932,fitted(price.toUpperCase(),610,78,30),c[0]);
-text(shop.toUpperCase(),450,1060,fitted(shop.toUpperCase(),780,43,24),'#ffffff');
-text(contact,450,1120,27,'#ffffff');
-}else if(style==='modern'){
-text(shop.toUpperCase(),450,100,fitted(shop.toUpperCase(),780,55,25),'#ffffff');
-text(topTag,450,155,21,c[2]);
-if(photo)cropPhoto(photo,120,215,660,430);
-else{
-rounded(120,215,660,430,18,'#ffffff12');
-text('YOUR PRODUCT',450,425,36,c[2]);
-}
-heading(offer.toUpperCase(),450,710,760,83,'#ffffff',88,3);
-rounded(210,930,480,90,45,c[2]);
-text(price.toUpperCase(),450,976,fitted(price.toUpperCase(),430,48,24),c[0]);
-text(contact,450,1080,27,'#ffffff');
-}else{
-text('✦  '+topTag+'  ✦',450,100,23,c[2]);
-text(shop.toUpperCase(),450,165,fitted(shop.toUpperCase(),780,54,25),'#ffffff');
-if(photo)cropPhoto(photo,110,220,680,400);
-else{
-rounded(110,220,680,400,18,'#ffffff12');
-text('ADD YOUR PHOTO',450,420,38,c[2]);
-}
-heading(offer.toUpperCase(),450,700,740,80,'#ffffff',86,3);
-rounded(160,900,580,100,14,c[2]);
-text(price.toUpperCase(),450,950,fitted(price.toUpperCase(),530,55,25),c[0]);
-text(contact,450,1060,27,'#ffffff');
-text('WITH WARM WISHES',450,1120,20,c[2]);
-}
-}
-
-['shop','offer','price','contact','category','style'].forEach(id=>{
-$(id).addEventListener('input',draw);
+$("remove").addEventListener("click",()=>{
+  uploadedImage=null;
+  $("photo").value="";
+  generate();
 });
-
-$('photo').addEventListener('change',()=>{
-const file=$('photo').files[0];
-if(!file)return;
-if(!file.type.startsWith('image/')){
-alert('Please select an image file.');
-return;
-}
-if(file.size>12*1024*1024){
-alert('Please choose an image smaller than 12 MB.');
-$('photo').value='';
-return;
-}
-const reader=new FileReader();
-reader.onload=()=>{
-const img=new Image();
-img.onload=()=>{photo=img;draw()};
-img.onerror=()=>alert('Could not load this image. Please try another.');
-img.src=reader.result;
-};
-reader.readAsDataURL(file);
+$("photo").addEventListener("change",event=>{
+  const file=event.target.files&&event.target.files[0];
+  if(!file)return;
+  if(!file.type.startsWith("image/")){
+    $("status").textContent="Please select an image file.";
+    return;
+  }
+  const img=new Image();
+  img.onload=()=>{
+    uploadedImage=img;
+    generate();
+    $("status").textContent="Photo added. Generate again to explore more layouts.";
+  };
+  img.onerror=()=>{$("status").textContent="Could not load that image. Try another photo.";};
+  img.src=URL.createObjectURL(file);
 });
-
-$('clear').addEventListener('click',()=>{
-photo=null;
-$('photo').value='';
-draw();
+["brand","headline","offer","contact","category","style"].forEach(id=>{
+  $(id).addEventListener("change",generate);
 });
-
-$('generate').addEventListener('click',()=>{
-const styles=['editorial','bold','modern','festive'];
-design=(design+1)%styles.length;
-$('style').value=styles[design];
-draw();
-});
-
-$('download').addEventListener('click',()=>{
-draw();
-try{
-const a=document.createElement('a');
-a.download='PosterMakerBot-Poster.png';
-a.href=canvas.toDataURL('image/png');
-a.click();
-}catch(e){
-alert('Download failed. Please try another photo or browser.');
-}
-});
-
-draw();
+generate();
 </script>
 </body>
 </html>
