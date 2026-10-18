@@ -3,175 +3,342 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>PosterMakerBot | Free Poster Designer</title>
+<title>PosterMakerBot Pro</title>
 <style>
 *{box-sizing:border-box}
-body{margin:0;font-family:Arial,sans-serif;background:#f1f5f9;color:#172033}
-header{background:#111827;color:white;text-align:center;padding:24px 12px}
-header h1{margin:0;font-size:29px}
-header p{color:#cbd5e1;margin:9px 0 0}
-main{max-width:1050px;margin:22px auto;padding:0 14px;display:grid;grid-template-columns:1fr 1fr;gap:20px}
-.panel{background:white;border-radius:15px;padding:20px;box-shadow:0 4px 18px #0000000b}
-h2{font-size:19px;margin:0 0 15px}
-label{display:block;font-size:14px;font-weight:bold;margin:13px 0 6px}
-input,select{width:100%;padding:12px;border:1px solid #cbd5e1;border-radius:8px;font-size:15px}
-button{border:0;border-radius:9px;padding:13px;font-size:15px;font-weight:bold;cursor:pointer}
-.primary{background:#2563eb;color:white;width:100%;margin-top:18px}
-.download{background:#15803d;color:white;width:100%;margin-top:12px}
-#poster{aspect-ratio:4/5;width:100%;padding:24px;display:flex;align-items:center;justify-content:center;text-align:center;color:white;background:linear-gradient(145deg,#172554,#7c3aed);border-radius:8px;overflow:hidden}
-.frame{width:100%;padding:22px 10px;border:2px solid #ffffffb0}
-#tag{font-size:13px;letter-spacing:3px;font-weight:bold}
-#shop{ }
-#pShop{font-size:clamp(23px,4vw,40px);font-weight:900;overflow-wrap:anywhere;margin:28px 0}
-#pOffer{font-size:clamp(26px,5vw,46px);font-weight:900;overflow-wrap:anywhere}
-#pPrice{font-size:24px;font-weight:bold;margin:22px 0}
-#pContact{font-size:15px;overflow-wrap:anywhere}
-#pMessage{margin-top:25px;font-size:13px;letter-spacing:2px}
-.note{font-size:12px;color:#64748b;line-height:1.5}
-footer{text-align:center;padding:20px;color:#64748b;font-size:12px}
-@media(max-width:700px){main{grid-template-columns:1fr}.panel{padding:15px}}
+body{margin:0;background:#0b1020;color:#f8fafc;font-family:Arial,sans-serif}
+header{text-align:center;padding:25px 12px;background:#111a33}
+header h1{margin:0;font-size:30px}
+header p{color:#b9c7e5;margin:8px 0 0}
+main{max-width:1100px;margin:22px auto;padding:0 14px;display:grid;grid-template-columns:340px 1fr;gap:20px}
+.panel{background:#151d32;border:1px solid #293550;border-radius:16px;padding:18px;min-width:0}
+h2{font-size:18px;margin:0 0 16px}
+label{display:block;font-size:13px;font-weight:bold;margin:13px 0 6px;color:#dce5f8}
+input,select{width:100%;padding:11px;border-radius:8px;border:1px solid #3b4965;background:#0b1224;color:white;font-size:14px}
+input[type=file]{font-size:12px}
+button{border:0;border-radius:9px;padding:13px;font-weight:bold;font-size:14px;cursor:pointer}
+.primary{width:100%;background:#7c3aed;color:white;margin-top:16px}
+.secondary{width:100%;background:#273654;color:white;margin-top:9px}
+.download{width:100%;background:#16a34a;color:white;margin-top:12px}
+.canvasbox{background:#080d19;padding:10px;border-radius:10px}
+canvas{display:block;width:100%;height:auto;border-radius:5px}
+.note{font-size:12px;line-height:1.6;color:#aab7d0}
+.row{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+footer{text-align:center;padding:20px;color:#91a1bd;font-size:12px}
+@media(max-width:760px){main{grid-template-columns:1fr}.panel{padding:15px}header h1{font-size:25px}}
 </style>
 </head>
 <body>
 <header>
-<h1>PosterMakerBot</h1>
-<p>Design promotional posters for your business — free</p>
+<h1>PosterMakerBot PRO</h1>
+<p>Design eye-catching business posters for free</p>
 </header>
 <main>
 <section class="panel">
-<h2>Poster details</h2>
+<h2>Customize your design</h2>
 <label for="shop">Business name</label>
-<input id="shop" value="YOUR BUSINESS" placeholder="Business name">
-<label for="offer">Headline or offer</label>
-<input id="offer" value="MEGA SALE" placeholder="Special offer">
-<label for="price">Price or discount</label>
-<input id="price" value="UP TO 50% OFF" placeholder="Starting at ₹499">
-<label for="contact">Contact details</label>
-<input id="contact" value="Call us today!" placeholder="Phone or address">
-<label for="category">Category</label>
+<input id="shop" value="RAINA FASHION" maxlength="55">
+
+<label for="offer">Main headline</label>
+<input id="offer" value="MEGA SALE" maxlength="65">
+
+<div class="row">
+<div>
+<label for="price">Offer / price</label>
+<input id="price" value="50% OFF" maxlength="35">
+</div>
+<div>
+<label for="contact">Contact</label>
+<input id="contact" value="Call Today" maxlength="45">
+</div>
+</div>
+
+<label for="category">Business category</label>
 <select id="category">
-<option value="shop">Shop</option>
+<option value="fashion">Fashion & Clothing</option>
 <option value="food">Restaurant & Food</option>
-<option value="fashion">Clothing Sale</option>
+<option value="shop">Retail Shop</option>
 <option value="festival">Festival</option>
 <option value="special">Special Offer</option>
 </select>
-<label for="theme">Colour palette</label>
-<select id="theme">
-<option value="purple">Royal Purple</option>
-<option value="red">Bold Red</option>
-<option value="gold">Luxury Gold</option>
-<option value="green">Fresh Green</option>
-<option value="blue">Modern Blue</option>
+
+<label for="style">Poster layout</label>
+<select id="style">
+<option value="editorial">Luxury Editorial</option>
+<option value="bold">Bold Sale Campaign</option>
+<option value="modern">Modern Geometric</option>
+<option value="festive">Decorative Celebration</option>
 </select>
-<button class="primary" id="generate">Generate poster</button>
-<p class="note">Your details stay in this browser. Check all spelling and prices before downloading.</p>
+
+<label for="photo">Upload a product or background photo</label>
+<input type="file" id="photo" accept="image/png,image/jpeg,image/webp">
+
+<p class="note">Use a photo you own or have permission to use. Product photos make your posters much more distinctive.</p>
+
+<button class="primary" id="generate">Generate New Design</button>
+<button class="secondary" id="clear">Remove Photo</button>
+<button class="download" id="download">Download High-Quality PNG</button>
+<p class="note">Free browser-based editor. No login, paid API, or API key required.</p>
 </section>
+
 <section class="panel">
-<h2>Poster preview</h2>
-<div id="poster">
-<div class="frame">
-<div id="tag">SPECIAL OFFER</div>
-<div id="pShop">YOUR BUSINESS</div>
-<div id="pOffer">MEGA SALE</div>
-<div id="pPrice">UP TO 50% OFF</div>
-<div id="pContact">Call us today!</div>
-<div id="pMessage">DON'T MISS OUT!</div>
+<h2>Live poster preview</h2>
+<div class="canvasbox">
+<canvas id="poster" width="900" height="1200"></canvas>
 </div>
-</div>
-<button class="download" id="download">Download PNG poster</button>
-<p class="note">High-resolution 800 × 1000 PNG. Works without paid APIs or API keys.</p>
+<p class="note">Export size: 900 × 1200 pixels. Preview and download use the same design.</p>
 </section>
 </main>
-<footer>PosterMakerBot · Free browser-based poster creation</footer>
+<footer>PosterMakerBot · Create responsibly using photos you have permission to use.</footer>
+
 <script>
 const $=id=>document.getElementById(id);
-const palettes={
-purple:['#24104f','#9333ea'],
-red:['#7f1d1d','#ef4444'],
-gold:['#422006','#d97706'],
-green:['#064e3b','#22c55e'],
-blue:['#082f49','#0284c7']
-};
-const configs={
-shop:{tag:'YOUR LOCAL SHOP',message:'GREAT DEALS • GREAT VALUE',colors:['#172554','#2563eb']},
-food:{tag:'FRESH • TASTY • DELICIOUS',message:'MADE WITH LOVE',colors:['#7f1d1d','#ea580c']},
-fashion:{tag:'NEW SEASON • NEW STYLE',message:'FIND YOUR STYLE',colors:['#500724','#db2777']},
-festival:{tag:'CELEBRATE TOGETHER',message:'WISHING YOU JOY & HAPPINESS',colors:['#78350f','#d97706']},
-special:{tag:'LIMITED-TIME OFFER',message:"DON'T MISS OUT!",colors:['#172554','#7c3aed']}
-};
-function update(){
-const cat=$('category').value;
-const theme=palettes[$('theme').value];
-const config=configs[cat];
-$('pShop').textContent=$('shop').value.trim()||'YOUR BUSINESS';
-$('pOffer').textContent=$('offer').value.trim()||'SPECIAL OFFER';
-$('pPrice').textContent=$('price').value.trim();
-$('pContact').textContent=$('contact').value.trim();
-$('tag').textContent=config.tag;
-$('pMessage').textContent=config.message;
-let colors=theme;
-if($('theme').value==='purple'&&cat!=='special')colors=config.colors;
-$('poster').style.background=`linear-gradient(145deg,${colors[0]},${colors[1]})`;
-}
-['shop','offer','price','contact','category','theme'].forEach(id=>{
-$(id).addEventListener('input',update);
-});
-$('generate').addEventListener('click',update);
-function xml(s){
-return String(s).replace(/[<>&'"]/g,c=>({'<':'&lt;','>':'&gt;','&':'&amp;',"'":'&apos;','"':'&quot;'}[c]));
-}
-function lines(s,y,size,max=25){
-const words=String(s).split(/\s+/),result=[];let line='';
-for(const word of words){
-if((line+' '+word).trim().length>max&&line){result.push(line);line=word}
-else line=(line+' '+word).trim();
-}
-if(line)result.push(line);
-return result.slice(0,4).map((v,i)=>
-`<text x="400" y="${y+i*size*1.2}" text-anchor="middle" font-family="Arial,sans-serif" font-size="${size}" font-weight="bold" fill="white">${xml(v)}</text>`
-).join('');
-}
-$('download').addEventListener('click',()=>{
-update();
-const cat=$('category').value;
-const theme=palettes[$('theme').value];
-const config=configs[cat];
-let colors=theme;
-if($('theme').value==='purple'&&cat!=='special')colors=config.colors;
-const svg=`<svg xmlns="http://www.w3.org/2000/svg" width="800" height="1000">
-<defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop stop-color="${colors[0]}"/><stop offset="1" stop-color="${colors[1]}"/></linearGradient></defs>
-<rect width="800" height="1000" fill="url(#g)"/>
-<rect x="35" y="35" width="730" height="930" rx="12" fill="none" stroke="white" stroke-width="4"/>
-<text x="400" y="150" text-anchor="middle" font-family="Arial,sans-serif" font-size="25" letter-spacing="3" fill="white">${xml(config.tag)}</text>
-${lines($('shop').value||'YOUR BUSINESS',300,52,22)}
-${lines($('offer').value||'SPECIAL OFFER',470,52,25)}
-<line x1="170" y1="565" x2="630" y2="565" stroke="white" stroke-width="3"/>
-${lines($('price').value,650,37,27)}
-${lines($('contact').value,775,25,34)}
-<text x="400" y="900" text-anchor="middle" font-family="Arial,sans-serif" font-size="22" font-weight="bold" fill="white">${xml(config.message)}</text>
-</svg>`;
-const url=URL.createObjectURL(new Blob([svg],{type:'image/svg+xml;charset=utf-8'}));
-const img=new Image();
-img.onload=()=>{
-const canvas=document.createElement('canvas');
-canvas.width=800;canvas.height=1000;
+const canvas=$('poster');
 const ctx=canvas.getContext('2d');
-ctx.drawImage(img,0,0,800,1000);
-URL.revokeObjectURL(url);
-canvas.toBlob(blob=>{
-if(!blob){alert('PNG creation failed. Please try again.');return}
-const a=document.createElement('a');
-a.href=URL.createObjectURL(blob);
-a.download='PosterMakerBot.png';
-a.click();
-setTimeout(()=>URL.revokeObjectURL(a.href),3000);
-},'image/png');
+let photo=null;
+let design=0;
+
+const palettes={
+fashion:['#160d20','#ad4677','#f9d9a5'],
+food:['#35120c','#e35b25','#ffe0a3'],
+shop:['#071d36','#1674b8','#f4e9cf'],
+festival:['#47132c','#d98b29','#fff0bd'],
+special:['#111827','#6d28d9','#facc15']
 };
-img.onerror=()=>{URL.revokeObjectURL(url);alert('Export failed. Please try again.')};
-img.src=url;
+
+function rounded(x,y,w,h,r,color){
+ctx.fillStyle=color;
+ctx.beginPath();
+ctx.roundRect(x,y,w,h,r);
+ctx.fill();
+}
+
+function text(str,x,y,size,color,weight='bold',align='center'){
+ctx.fillStyle=color;
+ctx.font=`${weight} ${size}px Arial,sans-serif`;
+ctx.textAlign=align;
+ctx.textBaseline='middle';
+ctx.fillText(str,x,y);
+}
+
+function fitted(str,maxWidth,start=82,min=28){
+let size=start;
+while(size>min){
+ctx.font=`900 ${size}px Arial,sans-serif`;
+if(ctx.measureText(str).width<=maxWidth)break;
+size-=2;
+}
+return size;
+}
+
+function wrap(str,maxWidth,size,maxLines=3){
+ctx.font=`900 ${size}px Arial,sans-serif`;
+const words=String(str||'').trim().split(/\s+/);
+const lines=[];
+let line='';
+for(const word of words){
+const test=(line+' '+word).trim();
+if(ctx.measureText(test).width>maxWidth&&line){
+lines.push(line);
+line=word;
+}else line=test;
+}
+if(line)lines.push(line);
+return lines.slice(0,maxLines);
+}
+
+function heading(str,x,y,maxWidth,size,color,lineGap,maxLines=3){
+const lines=wrap(str,maxWidth,size,maxLines);
+lines.forEach((line,i)=>{
+const s=fitted(line,maxWidth,size,25);
+text(line,x,y+i*lineGap,s,color,'900');
 });
-update();
+return lines.length*lineGap;
+}
+
+function background(c){
+const g=ctx.createLinearGradient(0,0,900,1200);
+g.addColorStop(0,c[0]);
+g.addColorStop(.58,c[1]);
+g.addColorStop(1,c[0]);
+ctx.fillStyle=g;
+ctx.fillRect(0,0,900,1200);
+}
+
+function cropPhoto(img,x,y,w,h){
+const scale=Math.max(w/img.width,h/img.height);
+const sw=w/scale,sh=h/scale;
+const sx=(img.width-sw)/2,sy=(img.height-sh)/2;
+ctx.save();
+ctx.beginPath();
+ctx.rect(x,y,w,h);
+ctx.clip();
+ctx.drawImage(img,sx,sy,sw,sh,x,y,w,h);
+ctx.restore();
+}
+
+function decorations(c,style){
+ctx.save();
+if(style==='modern'){
+ctx.globalAlpha=.22;
+ctx.fillStyle=c[2];
+ctx.beginPath();
+ctx.arc(790,120,210,0,Math.PI*2);
+ctx.fill();
+ctx.beginPath();
+ctx.moveTo(0,780);ctx.lineTo(310,600);ctx.lineTo(420,1200);ctx.lineTo(0,1200);
+ctx.closePath();ctx.fill();
+}else if(style==='festive'){
+ctx.strokeStyle=c[2];ctx.lineWidth=4;
+for(let i=0;i<9;i++){
+ctx.beginPath();
+ctx.arc(450,400,90+i*32,0,Math.PI*2);
+ctx.stroke();
+}
+}else{
+ctx.globalAlpha=.2;
+ctx.strokeStyle=c[2];ctx.lineWidth=3;
+for(let i=0;i<10;i++){
+ctx.beginPath();
+ctx.moveTo(i*110,0);ctx.lineTo(i*110+350,1200);
+ctx.stroke();
+}
+}
+ctx.restore();
+}
+
+function draw(){
+const cat=$('category').value;
+const style=$('style').value;
+const c=palettes[cat];
+const shop=$('shop').value.trim()||'YOUR BUSINESS';
+const offer=$('offer').value.trim()||'SPECIAL OFFER';
+const price=$('price').value.trim();
+const contact=$('contact').value.trim();
+
+background(c);
+decorations(c,style);
+
+ctx.strokeStyle=c[2];
+ctx.lineWidth=5;
+ctx.strokeRect(26,26,848,1148);
+
+const topTag={
+fashion:'STYLE • QUALITY • ELEGANCE',
+food:'FRESH • TASTY • DELICIOUS',
+shop:'YOUR LOCAL FAVOURITE',
+festival:'CELEBRATE IN STYLE',
+special:'A DEAL WORTH DISCOVERING'
+}[cat];
+
+if(style==='editorial'){
+text('✦  '+topTag+'  ✦',450,85,23,c[2]);
+text(shop.toUpperCase(),450,155,fitted(shop.toUpperCase(),790,57,27),c[2]);
+if(photo)cropPhoto(photo,95,215,710,440);
+else{
+rounded(95,215,710,440,18,'#ffffff12');
+text('YOUR PRODUCT',450,400,36,c[2]);
+text('ADD A PHOTO FOR MORE IMPACT',450,455,18,'#ffffff');
+}
+ctx.fillStyle=c[0];
+ctx.fillRect(55,660,790,430);
+heading(offer.toUpperCase(),450,730,700,78,'#ffffff',88,3);
+rounded(180,920,540,90,12,c[2]);
+text(price.toUpperCase(),450,965,fitted(price.toUpperCase(),490,51,25),c[0]);
+text(contact,450,1060,28,'#ffffff','bold');
+text('DISCOVER MORE  •  SHOP TODAY',450,1120,19,c[2]);
+}else if(style==='bold'){
+text(topTag,450,100,24,c[2]);
+heading(offer.toUpperCase(),450,195,790,105,'#ffffff',110,3);
+if(photo)cropPhoto(photo,95,470,710,390);
+else{
+rounded(95,470,710,390,18,'#ffffff12');
+text('YOUR PRODUCT PHOTO',450,660,34,c[2]);
+}
+rounded(115,865,670,135,18,c[2]);
+text(price.toUpperCase(),450,932,fitted(price.toUpperCase(),610,78,30),c[0]);
+text(shop.toUpperCase(),450,1060,fitted(shop.toUpperCase(),780,43,24),'#ffffff');
+text(contact,450,1120,27,'#ffffff');
+}else if(style==='modern'){
+text(shop.toUpperCase(),450,100,fitted(shop.toUpperCase(),780,55,25),'#ffffff');
+text(topTag,450,155,21,c[2]);
+if(photo)cropPhoto(photo,120,215,660,430);
+else{
+rounded(120,215,660,430,18,'#ffffff12');
+text('YOUR PRODUCT',450,425,36,c[2]);
+}
+heading(offer.toUpperCase(),450,710,760,83,'#ffffff',88,3);
+rounded(210,930,480,90,45,c[2]);
+text(price.toUpperCase(),450,976,fitted(price.toUpperCase(),430,48,24),c[0]);
+text(contact,450,1080,27,'#ffffff');
+}else{
+text('✦  '+topTag+'  ✦',450,100,23,c[2]);
+text(shop.toUpperCase(),450,165,fitted(shop.toUpperCase(),780,54,25),'#ffffff');
+if(photo)cropPhoto(photo,110,220,680,400);
+else{
+rounded(110,220,680,400,18,'#ffffff12');
+text('ADD YOUR PHOTO',450,420,38,c[2]);
+}
+heading(offer.toUpperCase(),450,700,740,80,'#ffffff',86,3);
+rounded(160,900,580,100,14,c[2]);
+text(price.toUpperCase(),450,950,fitted(price.toUpperCase(),530,55,25),c[0]);
+text(contact,450,1060,27,'#ffffff');
+text('WITH WARM WISHES',450,1120,20,c[2]);
+}
+}
+
+['shop','offer','price','contact','category','style'].forEach(id=>{
+$(id).addEventListener('input',draw);
+});
+
+$('photo').addEventListener('change',()=>{
+const file=$('photo').files[0];
+if(!file)return;
+if(!file.type.startsWith('image/')){
+alert('Please select an image file.');
+return;
+}
+if(file.size>12*1024*1024){
+alert('Please choose an image smaller than 12 MB.');
+$('photo').value='';
+return;
+}
+const reader=new FileReader();
+reader.onload=()=>{
+const img=new Image();
+img.onload=()=>{photo=img;draw()};
+img.onerror=()=>alert('Could not load this image. Please try another.');
+img.src=reader.result;
+};
+reader.readAsDataURL(file);
+});
+
+$('clear').addEventListener('click',()=>{
+photo=null;
+$('photo').value='';
+draw();
+});
+
+$('generate').addEventListener('click',()=>{
+const styles=['editorial','bold','modern','festive'];
+design=(design+1)%styles.length;
+$('style').value=styles[design];
+draw();
+});
+
+$('download').addEventListener('click',()=>{
+draw();
+try{
+const a=document.createElement('a');
+a.download='PosterMakerBot-Poster.png';
+a.href=canvas.toDataURL('image/png');
+a.click();
+}catch(e){
+alert('Download failed. Please try another photo or browser.');
+}
+});
+
+draw();
 </script>
 </body>
 </html>
